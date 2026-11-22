@@ -29,7 +29,6 @@ This document introduces artificial intelligence to faculty and staff across aca
 | `ai_fundamentals.pdf` | Compiled document |
 | `ai_fundamentals.tex` | LaTeX source |
 | `ai.bib` | Bibliography (BibTeX) |
-| `authors.tex` | Author block |
 | `optimization_figure.tex` | Figure 2 (TikZ) |
 | `images/` | Figure files |
 
