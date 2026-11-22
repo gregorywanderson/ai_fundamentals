@@ -5,6 +5,7 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage{ccicons}
 
 % 2. Lists & Text Formatting
 \usepackage{enumitem}
@@ -38,11 +39,15 @@
     \large How AI Works, How It Is Changing, and How to Evaluate It\\
     \textit{A Primer for Faculty and Staff}%
   \footnote{
-  AI applications (ChatGPT, Claude, and Gemini) assisted with brainstorming, drafting, editing, and developing illustrations. The document's conceptual framing, selection of examples, fact checking, and substantive revisions were directed by the author, who retains responsibility for all of its content.}
+  AI applications (ChatGPT, Claude, and Gemini) assisted with brainstorming, drafting, editing, and developing illustrations. The document's conceptual framing, selection of examples, fact checking, and substantive revisions were directed by the author, who retains responsibility for all of its content.
+  For reflections on the AI-assisted writing process, see Section~\ref{sec:afterword}.}
 }
 
 \author{
-    Gregory Anderson\\
+    Gregory Anderson\thanks{Licensed under \ccbysa
+  \href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}.
+  Source files and latest version:
+  \url{https://github.com/gregorywanderson/ai_fundamentals}.}\\
     {\small Department of Physics}\\
     {\small Northeastern Illinois University}
 }
@@ -74,17 +79,16 @@ the main drivers of AI progress (model design, computation, and data), why that 
 %\tableofcontents
 \section*{Introduction}
 
-\noindent\textbf{Two questions to keep in mind.}
+\noindent\textbf{A Tale of Two Queries.}
 A history professor asks an AI assistant to explain the causes of the
-French Revolution. It quickly produces a fluent account of fiscal crisis,
+French Revolution. It produces an articulate account of fiscal crisis,
 social inequality, and political ideas. Did it consult historical sources,
-or generate an explanation from patterns acquired during training?
+or did it generate an explanation from patterns and associations acquired during training?
 
-A second professor asks how ground-level ozone in the Chicago region
-has changed over the past twenty years. The assistant might offer a
-confident summary, or it might use tools to retrieve monitoring data,
-calculate trends, and plot results.
-But which measure of ozone should it analyze, such as a daily average or peak concentrations? And how were those measurements collected---what type of detector was used, was it properly calibrated, at what sampling frequency were readings recorded, and how were the data averaged over time and across changing monitoring sites?
+A second professor asks an AI assistant how ground-level ozone in the Chicago region
+has changed over the past twenty years.
+The assistant may retrieve EPA monitoring data and calculate trends, but selecting an appropriate measure of ozone and evaluating the data still require scientific judgment. In either case, the crucial question is not simply whether the response sounds convincing, but what information and methods the system actually used and how its conclusions can be checked.
+
 These two cases will help distinguish what a model has learned from
 what an application can actually verify and do. The questions also
 arise in education, business, and many other disciplines.
@@ -378,7 +382,6 @@ produce a fluent account of the causes of the French
 Revolution, and why does that account still need checking?
 The answer depends on the distinction between
 \emph{training} a model and \emph{using} one.
-
 
 \subsection{Training as an Optimization Problem}\label{sec:optimization}
 
@@ -733,7 +736,10 @@ each fixed fractional reduction in prediction error requires a multiplicative in
 
 As high-quality human-written data becomes scarcer, developers increasingly train models on \emph{synthetic data}: data that are generated rather than collected from the world. Synthetic data may come from rule-based simulations, such as games, physics simulations, or virtual environments for robotics, or from AI models themselves, which can produce practice problems, worked solutions, or example dialogues.
 
-Generated data are most useful when correctness can be checked automatically. A game has a winner, a mathematical proof can be verified, and computer code can be tested. In such domains, a system can generate many attempts, keep those that succeed, and learn from the results. AlphaGo Zero learned to play Go at a superhuman level entirely through self-play, without human game records \citep{Silver2017AlphaGoZero}. Reinforcement learning on problems with verifiable answers has contributed substantially to recent gains in mathematical and programming performance \citep{Guo2025DeepSeekR1}.
+Generated data are most useful when correctness can be checked automatically.
+Consider two simplified examples. A generative AI system could produce thousands of multiplication problems and their answers. Because the answers can be checked using ordinary arithmetic, incorrect examples can be discarded, leaving useful training data. The same system could generate thousands of musical compositions, but there is no comparably straightforward test of whether they sound good. Without an independent measure of musical quality, such as evaluations by human listeners, generating more music would not necessarily provide better training data.
+
+Similarly, a game has a winner, a mathematical proof can be verified, and computer code can be tested. In such domains, a system can generate many attempts, keep those that succeed, and learn from the results. AlphaGo Zero learned to play Go at a superhuman level entirely through self-play, without human game records \citep{Silver2017AlphaGoZero}. Reinforcement learning on problems with verifiable answers has contributed substantially to recent gains in mathematical and programming performance \citep{Guo2025DeepSeekR1}.
 
 Generated data are much less useful where no reliable automatic check exists. Examples include the quality of a historical interpretation, the appropriateness of a lesson plan for particular students, or ethical judgment. Simulations are also limited by their fidelity. A model trained on simulated data cannot learn physical effects the simulation omits, and robots trained in simulation often perform worse in the real world. Generated data also have a more fundamental limit. A physics simulation can yield genuinely new predictions from established laws, and AI systems can help discover new mathematical results. But generated results do not by themselves establish new facts about the physical world; those require observation or experiment. Finally, training models repeatedly on their own unfiltered outputs can degrade performance, a phenomenon called model collapse \citep{Shumailov2024Collapse}.
 
@@ -828,7 +834,23 @@ Source: METR \citep{METR2026TimeHorizons}.}
 \subsection{AI in Scientific Research}
 
 AI systems have demonstrated capabilities that extend well beyond generating text and images. In mathematics, a 2026 OpenAI reasoning model disproved a longstanding conjecture in discrete geometry; mathematicians subsequently examined the result \citep{OpenAI2026Geometry}.
-In biology, the specialized AI system \href{https://alphafold.com/}{AlphaFold} has substantially advanced protein structure prediction \citep{Jumper2021AlphaFold}, and its public database now contains predicted structures for more than 260 million protein sequences \citep{Varadi2024AlphaFoldDB}. AlphaFold 3 extends these capabilities to molecular complexes involving proteins, nucleic acids, and other molecules \citep{Abramson2024AlphaFold3}. These achievements illustrate how AI can contribute to scientific discovery, although the methods, degree of human involvement, and requirements for independent verification differ substantially among applications. Predicted molecular structures may still require experimental validation.
+In biology, the specialized AI system \href{https://alphafold.com/}{AlphaFold} has substantially advanced protein structure prediction \citep{Jumper2021AlphaFold}, and its public database now contains predicted structures for more than 200 million protein sequences \citep{Varadi2024AlphaFoldDB}. AlphaFold 3 extends these capabilities to molecular complexes involving proteins, nucleic acids, and other molecules \citep{Abramson2024AlphaFold3}. These achievements illustrate how AI can contribute to scientific discovery, although the methods, degree of human involvement, and requirements for independent verification differ substantially among applications. Predicted molecular structures may still require experimental validation.
+
+In November 2026, Levent Alpöge, a mathematician at Anthropic,
+announced that, working with Claude, he had found a proof of the
+Riemann hypothesis, an open problem since 1859
+\citep{Alpoge2026RH}. Rather than write a conventional paper, he
+released the proof as roughly 17 million lines of code in the
+Lean proof assistant. The next day, the Lean FRO and the Mathlib
+Initiative issued a joint statement expressing full confidence
+that the formal proof is correct, after independent checks
+confirmed that the code compiles and that the theorem it proves
+matches the standard formal statement of the hypothesis
+\citep{LeanFRO2026RH}. Developing an explanation that
+mathematicians can read and understand remains an ongoing task.
+The episode illustrates this document's central theme: the result
+was accepted not because it sounded convincing, but because it
+could be checked independently.
 
 \subsection{Future Possibilities}
 
@@ -1012,18 +1034,19 @@ A more informative exercise is to audit an AI-generated
 literature summary for invented or misrepresented references,
 checking its claims against the cited sources.
 
-\paragraph{The Two Questions Revisited}
+\paragraph{A Tale of Two Queries Revisited}
+
 Without access to external sources, the history professor's
 assistant may generate its explanation of the French Revolution
 from patterns learned during training. It need not have consulted
 historical documents, so quotations, citations, and factual
-claims still require checking. The ozone assistant may instead
+claims still require checking.
+The ozone assistant may instead
 retrieve actual EPA monitoring data and perform calculations
 with external tools. Even then, choosing an appropriate measure of ozone and accounting for detector types and calibration, sampling frequency and data averaging, seasonal variation, and changes in monitoring coverage require informed scientific judgment.
 In either case, the crucial question is not simply whether
 the response sounds convincing, but what information and methods
 the system actually used and how its conclusions can be checked.
-
 
 \section{Further Reading and Resources}
 
@@ -1042,7 +1065,21 @@ A foundational academic treatment of foundation models, their capabilities, limi
 \paragraph{OECD -- Explanatory Memorandum on the Updated OECD Definition of an AI System (2024)}
   An accessible reference for understanding how AI systems are defined and why the boundaries of the term can be difficult to establish \citep{OECD2024AIDefinition}.
 
+\clearpage  
+\section{Afterword: Reflections on Writing with AI}\label{sec:afterword}
 
+The process of writing this paper illustrated both the capabilities and limitations of generative AI.
+Drafting definitions of common terminology is a task AI models perform as well as---and often better than---a human writer. They are certainly able to do this faster.
+AI models are also able to provide correct, detailed explanations of the mathematics behind neural networks and
+gradient descent, although those details were not addressed in this manuscript.  Likewise, they can
+describe standard aspects of AI development quite capably.
+Generative AI was less useful in the framing of the document, although it continued to excel at
+identifying language in a draft that needed improvement and suggesting alternative text.
+AI models struggled most to identify gaps in explanations and to evaluate the document's pedagogy.
+However, once these gaps and missing elements were flagged, AI models
+were able to recognize the issues and to suggest helpful revisions.
+As of November 2026, I don't believe AI would be able to produce a document like
+this working on its own, but without the input of AI, this document would have been much poorer.
 
   
 %\nocite{*}
@@ -1051,17 +1088,3 @@ A foundational academic treatment of foundation models, their capabilities, limi
 
 \end{document}
 
-\section{Working Notes}
-
-
-plot the increase in data
-plot the increase the compute
-
-
-Open weight models are less common. 
-The most capable systerms are also the least transparent.
-
-
-In science, AI shifted from accelerating individual
-research steps to attempting full replacement
-of entire workflows.
