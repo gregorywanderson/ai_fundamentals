@@ -1,0 +1,80 @@
+% Two-panel optimization analogy for Section 1.2.2.
+% Requires \usepackage{tikz}; \usetikzlibrary{arrows.meta,positioning,calc}
+% Insert using \input{optimization_figure.tex} after the two-paragraph
+% discussion beginning "Training as an Optimization Problem".
+\begin{figure}[tbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[font=\sffamily\footnotesize,>=Latex]
+  % Panel (a): a route and a nearby shorter route, drawn with the same cities.
+  \begin{scope}[shift={(0,0)}]
+    \node[anchor=west,font=\sffamily\bfseries] at (0,3.65)
+      {(a) Traveling salesman: improve a route};
+    \node[font=\scriptsize] at (1.65,3.20) {Initial route};
+    \node[font=\scriptsize] at (5.05,3.20) {Shorter route};
+    % The original route has a crossing; the new route removes it
+    % by swapping the order of two stops.
+    \begin{scope}[shift={(0,.35)}]
+      \coordinate (A) at (.50,.25);
+      \coordinate (B) at (2.48,.48);
+      \coordinate (C) at (2.25,2.20);
+      \coordinate (D) at (.93,2.49);
+      \coordinate (E) at (.12,1.37);
+      \draw[orange!85!black,line width=1.15pt] (A)--(B)--(D)--(C)--(E)--cycle;
+      \foreach \p/\name in {A/A,B/B,C/C,D/D,E/E} {
+        \draw[fill=white,draw=blue!70!black,line width=.7pt] (\p) circle (2.8pt);
+        \node[font=\tiny,anchor=west] at ($ (\p)+(.09,.02) $) {\name};
+      }
+    \end{scope}
+    \begin{scope}[shift={(3.4,.35)}]
+      \coordinate (A) at (.50,.25);
+      \coordinate (B) at (2.48,.48);
+      \coordinate (C) at (2.25,2.20);
+      \coordinate (D) at (.93,2.49);
+      \coordinate (E) at (.12,1.37);
+      \draw[teal!70!black,line width=1.15pt] (A)--(B)--(C)--(D)--(E)--cycle;
+      \foreach \p/\name in {A/A,B/B,C/C,D/D,E/E} {
+        \draw[fill=white,draw=blue!70!black,line width=.7pt] (\p) circle (2.8pt);
+        \node[font=\tiny,anchor=west] at ($ (\p)+(.09,.02) $) {\name};
+      }
+    \end{scope}
+    \draw[->,gray!70!black,line width=.9pt] (2.91,1.65)--(3.27,1.65);
+    \node[align=center,font=\scriptsize,text=black!75] at (3.3,-.03)
+       {Change the visiting order; compare total distances.};
+  \end{scope}
+
+  % Panel (b): illustrative cross-section of a continuously varying loss.
+  \begin{scope}[shift={(7.65,0)}]
+    \node[anchor=west,font=\sffamily\bfseries] at (0,3.65)
+      {(b) Neural-network training: lower the loss};
+    \draw[->,gray!80!black] (.48,.46)--(6.40,.46);
+    \draw[->,gray!80!black] (.48,.46)--(.48,3.16);
+    \node[anchor=west,font=\scriptsize] at (.53,3.08) {Loss (prediction error)};
+    \node[font=\scriptsize] at (3.55,.07) {A model-weight direction (schematic)};
+    % Same curve for all points: y = .62 + .17*(x-3.25)^2
+    \draw[blue!75!black,thick,domain=.72:6.20,samples=75,smooth]
+      plot (\x,{.63+.17*(\x-3.25)*(\x-3.25)});
+    % Three downhill steps (right to left), plus final near the minimum.
+    \coordinate (p1) at (5.75,1.6925);
+    \coordinate (p2) at (4.94,1.1156);
+    \coordinate (p3) at (4.18,.7770);
+    \coordinate (p4) at (3.62,.6533);
+    \draw[->,orange!90!black,line width=1pt] (p1) -- (p2);
+    \draw[->,orange!90!black,line width=1pt] (p2) -- (p3);
+    \draw[->,orange!90!black,line width=1pt] (p3) -- (p4);
+    \foreach \p in {p1,p2,p3,p4} {
+      \draw[fill=orange!85!black,draw=white,line width=.5pt] (\p) circle (2.6pt);
+    }
+    \node[font=\scriptsize,anchor=west] at (5.17,2.20) {Start};
+  \end{scope}
+\end{tikzpicture}%
+}
+\caption{Two kinds of optimization. (a) In the traveling salesman problem,
+changing the order of visits can shorten a route through the same cities.
+The alternatives are discrete routes. (b) In neural-network training,
+small adjustments to numerical weights can reduce a measure of prediction
+error (the \emph{loss}). The curve represents one illustrative direction
+through a much higher-dimensional loss landscape; gradient-based training
+does not guarantee a global minimum.}
+\label{fig:optimization}
+\end{figure}
