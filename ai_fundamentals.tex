@@ -1,5 +1,8 @@
+\DocumentMetadata{
+    lang = en-US,
+    tagging = on
+}
 \documentclass[11pt]{article}
-
 % 1. Colors & Graphics
 \usepackage{xcolor}
 \usepackage{tikz}
@@ -8,7 +11,6 @@
 \usepackage{ccicons}
 
 % 2. Lists & Text Formatting
-\usepackage{enumitem}
 \usepackage[normalem]{ulem}
 
 % 3. Tables
@@ -223,7 +225,8 @@ relationships for contemporary systems.
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small,scale=0.83,transform shape]
+\begin{tikzpicture}[font=\small,scale=0.83,transform shape,
+alt={Nested regions show AI containing machine learning, which contains deep learning. Within deep learning, foundation models and generative AI are overlapping categories, with many modern large language models belonging to both.}]
 
   % Artificial intelligence
   \draw[rounded corners=10pt, thick, fill=gray!7]
@@ -283,7 +286,6 @@ Foundation models and generative AI overlap, but neither
 category is strictly a subset of the other. The diagram
 is schematic rather than a complete classification.}
 \label{fig:ai_relationships}
-
 \end{figure}
 
 These relationships are important because the capabilities,
@@ -301,7 +303,9 @@ performs several of them.
 
 \paragraph{Writing Assistance: From Rules to Generation}
 
-\begin{itemize}[leftmargin=*]
+\begingroup
+\setlength{\leftmargini}{1em}
+\begin{itemize}
 
 \item \textbf{Identifying misspelled words:}
 A conventional spell checker can compare words with a dictionary and
@@ -335,8 +339,8 @@ A contemporary generative AI assistant can draft paragraphs, summarize
 material, or rewrite prose in response to instructions. Unlike a tool
 that merely corrects spelling or grammar, it may also change the
 substance of what is being said.
-
 \end{itemize}
+\endgroup
 
 These distinctions describe \emph{tasks}, not mutually exclusive types
 of software. A spelling suggestion might come from a simple algorithm
@@ -765,6 +769,8 @@ This sequence is common: a benchmark is introduced, leading systems approach its
 
 \begin{table}[!htbp]
 \centering
+\begingroup
+\tagpdfsetup{table/header-rows={1}}
 \begin{tabular}{lc}
 \toprule
 \textbf{Group / Evaluation} & \textbf{Success rate} \\
@@ -775,10 +781,12 @@ Leading verified result (as of November 2026) & 86.0\% \\
 Human baseline (2024 study) & 72.4\% \\
 \bottomrule
 \end{tabular}
+\endgroup
 \caption{Success rates on OSWorld, a benchmark of multistep desktop computer tasks. While changes in agent scaffolding and updated benchmark versions limit exact apples-to-apples comparison between years, the results illustrate a rapid jump in agents' ability to operate standard software.
 The most recent result is from OSWorld-Verified, a corrected version of the task set. Sources: \citet{OSWorld2024}, \citet{StanfordHAI2026Index}, and \citet{XLANG2026OSWorldVerified}.}
 \label{tab:osworld}
 \end{table}
+
 \FloatBarrier
 
 \paragraph{METR -- AI Task-Completion Time Horizons}
@@ -817,7 +825,8 @@ The estimates also have substantial statistical uncertainty, particularly for th
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{images/metr_time_horizons.pdf}
+\includegraphics[width=\textwidth, 
+alt={Scatter plot showing increasing AI agent task-completion time horizons from 2023 to 2026, with substantial uncertainty in the most capable models.}]{images/metr_time_horizons.pdf}
 \caption{Estimated 50\% task-completion time horizons for
 AI models released between 2023 and 2026.
 The vertical axis represents the duration of tasks measured
