@@ -35,13 +35,13 @@
 \hypersetup{
     pdftitle={AI Fundamentals: How AI Works, How It Is Changing, and How to Evaluate It},
     pdfauthor={Gregory Anderson},
-    pdfsubject={A Primer for Faculty, Students and Staff},
+    pdfsubject={A Primer for Faculty and Staff},
     pdfdisplaydoctitle=true
 }
 \pagestyle{plain}
 
 \title{
-    \textbf{AI Fundamentals}\\[4pt]
+    \textbf{Making Sense of AI}\\[4pt]
     \large How AI Works, How It Is Changing, and How to Evaluate It\\
     \textit{A Primer for Faculty, Students, and Staff}%
   \footnote{
@@ -299,7 +299,7 @@ the models and methods underlying it \citep{Bommasani2021}.
 \FloatBarrier
 \subsection{AI in Everyday Life}
 
-Most faculty, staff, and students have encountered increasingly sophisticated computing
+Most faculty, students, and staff have encountered increasingly sophisticated computing
 technologies through everyday writing tools. These familiar examples
 help distinguish conventional programming, machine learning, and
 generative AI. The tasks are different, even when a single application
@@ -708,7 +708,7 @@ The harness runs the control loop that repeatedly feeds observations back to the
 For example, in a multistep research workflow---such as retrieving EPA ozone records, writing an analysis script, and plotting a twenty-year trend---the underlying model proposes what to do next, while the harness actually executes the script, captures error messages when a file format is unexpected, saves intermediate progress so work is not lost if the context window fills up, and pauses to ask for human approval before modifying files or sending results. Similarly, in software development or administrative tasks, a harness may maintain a structured task checklist, track version history so bad edits can be reverted, and run automated checks before allowing the agent to declare a task complete \citep{Anthropic2025Harnesses}. Because the harness shapes what an agent can see, remember, and do, two applications built on the exact same underlying model can perform very differently on benchmarks such as OSWorld and in everyday university work.
 
 \paragraph{Examples of AI Agents}
-As of November 2026, AI agents are available in applications that faculty and staff may encounter. For example, ChatGPT Work can research information, navigate websites, use connected applications, and complete multistep tasks \citep{OpenAI2026Work}.
+As of November 2026, AI agents are available in applications that faculty, studens, and staff may encounter. For example, ChatGPT Work can research information, navigate websites, use connected applications, and complete multistep tasks \citep{OpenAI2026Work}.
 Anthropic's Claude can work with files and tools across applications; these agent capabilities were introduced in 2026 as Claude Cowork and merged into the main Claude application in September 2026
 \citep{Anthropic2026Cowork}.
 Agents built using Microsoft's Copilot Studio can retrieve organizational information and use connected tools to perform business tasks \citep{Microsoft2026CopilotStudio}. Product names, capabilities, and availability may change.
@@ -894,6 +894,7 @@ Recursive self-improvement refers to a process in which improvements to an AI sy
 AGI describes a proposed breadth of capabilities, whereas RSI describes a possible process of improvement. Both concepts feature prominently in discussions of AI's future, but predictions about their development and consequences remain uncertain.
 
 \section{Limitations and Critical Evaluation}\label{sec:limitations}
+
 \subsection{Task Dependence and Limits of Generalization}
 
 The capabilities of an AI system depend on more than the
@@ -918,7 +919,7 @@ Success on a particular task or standardized benchmark
 does not necessarily imply comparable performance in
 other contexts \citep{Bommasani2021,NIST2024GenAI}.
 
-\subsection{Why AI Systems Can Produce Incorrect or Incomplete Results}
+\subsection{Why AI Systems Can Produce Incorrect Results}
 
 AI-generated information can be incorrect or misleading for
 several reasons, including hallucinations, biases in training
@@ -946,6 +947,7 @@ their outputs, producing systematic distortions
 even when individual statements appear plausible
 \citep{Bender2021Parrots,NIST2024GenAI}.
 
+\subsection{Limitations on Available Information}
 
 \paragraph{Temporal Knowledge Limitations}
 A \textbf{training cutoff} describes the most recent information
