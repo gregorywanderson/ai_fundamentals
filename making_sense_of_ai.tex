@@ -33,9 +33,9 @@
 %\renewcommand{\footnoterule}{} % Uncomment to pass VerePDF UDL/accessibility tests
 
 \hypersetup{
-    pdftitle={AI Fundamentals: How AI Works, How It Is Changing, and How to Evaluate It},
+    pdftitle={Making Sense of AI: How AI Works, How It Is Changing, and How to Evaluate It},
     pdfauthor={Gregory Anderson},
-    pdfsubject={A Primer for Faculty and Staff},
+    pdfsubject={A Primer for Faculty, Students, and Staff},
     pdfdisplaydoctitle=true
 }
 \pagestyle{plain}
@@ -53,7 +53,7 @@
     Gregory Anderson\thanks{Licensed under \ccbysa
   \href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}.
   Source files and latest version:
-  \url{https://github.com/gregorywanderson/ai_fundamentals}.}\\
+  \url{https://github.com/gregorywanderson/making_sense_of_ai}.}\\
     {\small Department of Physics}\\
     {\small Northeastern Illinois University}
 }
@@ -69,8 +69,11 @@ This document introduces artificial intelligence to faculty, students, and staff
 
 \clearpage
 \tableofcontents
-
 \clearpage
+
+\section*{Acknowledgment}
+This document was developed in part through my participation as a representative of Northeastern Illinois University in the American Association of Colleges and Universities (AAC\&U) Institute on AI, Pedagogy, and the Curriculum. The document was independently authored and does not necessarily represent the views or positions of NEIU or AAC\&U.
+
 \section*{Learning Outcomes}
 
 \begin{itemize}
@@ -84,7 +87,8 @@ the main drivers of AI progress (model design, computation, and data), why that 
 \item\textbf{Explain} why AI-generated information can be incorrect or incomplete, and select verification practices appropriate to the task and its consequences.
 \end{itemize}
 
-%\tableofcontents
+\clearpage
+
 \section*{Introduction}
 
 \noindent\textbf{A Tale of Two Queries.}
@@ -708,7 +712,7 @@ The harness runs the control loop that repeatedly feeds observations back to the
 For example, in a multistep research workflow---such as retrieving EPA ozone records, writing an analysis script, and plotting a twenty-year trend---the underlying model proposes what to do next, while the harness actually executes the script, captures error messages when a file format is unexpected, saves intermediate progress so work is not lost if the context window fills up, and pauses to ask for human approval before modifying files or sending results. Similarly, in software development or administrative tasks, a harness may maintain a structured task checklist, track version history so bad edits can be reverted, and run automated checks before allowing the agent to declare a task complete \citep{Anthropic2025Harnesses}. Because the harness shapes what an agent can see, remember, and do, two applications built on the exact same underlying model can perform very differently on benchmarks such as OSWorld and in everyday university work.
 
 \paragraph{Examples of AI Agents}
-As of November 2026, AI agents are available in applications that faculty, studens, and staff may encounter. For example, ChatGPT Work can research information, navigate websites, use connected applications, and complete multistep tasks \citep{OpenAI2026Work}.
+As of November 2026, AI agents are available in applications that faculty, students, and staff may encounter. For example, ChatGPT Work can research information, navigate websites, use connected applications, and complete multistep tasks \citep{OpenAI2026Work}.
 Anthropic's Claude can work with files and tools across applications; these agent capabilities were introduced in 2026 as Claude Cowork and merged into the main Claude application in September 2026
 \citep{Anthropic2026Cowork}.
 Agents built using Microsoft's Copilot Studio can retrieve organizational information and use connected tools to perform business tasks \citep{Microsoft2026CopilotStudio}. Product names, capabilities, and availability may change.
@@ -919,7 +923,7 @@ Success on a particular task or standardized benchmark
 does not necessarily imply comparable performance in
 other contexts \citep{Bommasani2021,NIST2024GenAI}.
 
-\subsection{Why AI Systems Can Produce Incorrect Results}
+\subsection{Why AI Systems Can Produce Incorrect or Incomplete Results}
 
 AI-generated information can be incorrect or misleading for
 several reasons, including hallucinations, biases in training
@@ -946,8 +950,6 @@ perspectives. These characteristics can influence
 their outputs, producing systematic distortions
 even when individual statements appear plausible
 \citep{Bender2021Parrots,NIST2024GenAI}.
-
-\subsection{Limitations on Available Information}
 
 \paragraph{Temporal Knowledge Limitations}
 A \textbf{training cutoff} describes the most recent information
