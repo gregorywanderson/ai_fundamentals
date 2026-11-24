@@ -660,6 +660,25 @@ inference, stored conversations may later be used in a separate training
 process, depending on the provider's policies, account settings, and
 institutional agreements. These are distinct technical processes.
 
+\paragraph{Memory Features: The Patient Who Keeps Notes}
+Some applications offer ``memory'' features that appear to remember a user
+across conversations. A helpful analogy is a person who cannot form new
+long-term memories, such as the well-known patient H.M., who after surgery
+in 1953 retained what he had learned before the operation but could no
+longer lay down new lasting memories of new events~\citep{scoville1957}. 
+A model's knowledge is likewise fixed when training ends.
+Within a conversation, the model can draw on a limited working memory,
+called its \emph{context window}, which holds the conversation and any
+supplied material. The \emph{model} does not retain this context between conversations, 
+although the \emph{application} may store it and supply it again.
+An application's memory feature works like a notebook: the application
+supplies notes about earlier interactions at the start of a new
+conversation, without changing the model's parameters. The analogy breaks
+down in two instructive ways. The model does not keep its own notes; the
+application decides what to save, often through a separate automated
+process. And unlike any human patient, the same model runs many
+independent conversations at once, none aware of the others.
+
 \paragraph{Multi-Model Platforms (BoodleBox)}
 Some applications provide access to models from multiple developers within a single workspace.
 For example, \textbf{BoodleBox}---an AI platform available to faculty, staff, and students at many universities---is an application rather than a new AI model \citep{BoodleBox2026}.
