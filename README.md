@@ -1,4 +1,4 @@
-# AI Fundamentals
+# Making Sense of AI
 
 **How AI Works, How It Is Changing, and How to Evaluate It**  
 *A Primer for Faculty, Students, and Staff*
