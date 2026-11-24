@@ -9,7 +9,7 @@ ORCID: [0000-0003-0346-7258](https://orcid.org/0000-0003-0346-7258)
 
 ## Download
 
-- **[Download the PDF (working draft)](ai_fundamentals.pdf)**
+- **[Download the PDF (working draft)](making_sense_of_ai.pdf)**
 
 ## Abstract
 
@@ -31,8 +31,8 @@ The document also includes learning outcomes, an introduction built around two r
 
 | File | Description |
 |------|-------------|
-| `ai_fundamentals.pdf` | Compiled document |
-| `ai_fundamentals.tex` | Main LaTeX source |
+| `making_sense_of_ai.pdf` | Compiled document |
+| `making_sense_of_ai.tex` | Main LaTeX source |
 | `ai.bib` | Bibliography (BibTeX) |
 | `optimization_figure.tex` | TikZ source for Figure 2 |
 | `images/` | Supporting figure files |
@@ -40,10 +40,10 @@ The document also includes learning outcomes, an introduction built around two r
 To build from source, use a LaTeX distribution with support for tagged PDF output:
 
 ```sh
-pdflatex ai_fundamentals
-bibtex ai_fundamentals
-pdflatex ai_fundamentals
-pdflatex ai_fundamentals
+pdflatex making_sense_of_ai
+bibtex making_sense_of_ai
+pdflatex making_sense_of_ai
+pdflatex making_sense_of_ai
 ```
 
 ## Accessibility
