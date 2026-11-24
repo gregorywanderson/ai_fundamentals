@@ -52,7 +52,7 @@ The PDF includes tagged document structure, language metadata, figure alternativ
 
 ## Status
 
-Working draft. Comments and corrections are welcome; please [open an issue](https://github.com/gregorywanderson/ai_fundamentals/issues).
+Working draft. Comments and corrections are welcome; please [open an issue](https://github.com/gregorywanderson/making_sense_of_ai/issues).
 
 ## AI Assistance
 
@@ -62,7 +62,7 @@ AI applications (ChatGPT, Claude, and Gemini) assisted with brainstorming, draft
 
 A DOI will be added when the document is archived on Zenodo. Until then, please cite as:
 
-> Anderson, G. (2026). *AI Fundamentals: How AI Works, How It Is Changing, and How to Evaluate It—A Primer for Faculty, Students, and Staff.* Working draft. https://github.com/gregorywanderson/ai_fundamentals
+> Anderson, G. (2026). *Making Sense of AI: How AI Works, How It Is Changing, and How to Evaluate It—A Primer for Faculty, Students, and Staff.* Working draft. https://github.com/gregorywanderson/making_sense_of_ai
 
 ## License
 
